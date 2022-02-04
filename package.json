@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && webpack --config webpack.config.js --mode=production",
-    "dev": "webpack-dev-server",
-    "start": "http-server -c-1"
+    "start": "webpack-dev-server",
+    "serve": "http-server -c-1"
   },
   "author": "",
   "license": "ISC",
