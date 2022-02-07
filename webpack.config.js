@@ -1,15 +1,17 @@
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require('path');
 
-module.exports = function(env, { mode }) {
+module.exports = function (env, { mode }) {
   const production = mode === 'production';
   return {
     mode: production ? 'production' : 'development',
-    devtool: production ? 'source-maps' : 'inline-source-map',
+    devtool: production ? 'source-map' : 'inline-source-map',
     entry: {
       app: ['./src/main.ts']
     },
     output: {
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      publicPath: '/'
     },
     resolve: {
       extensions: ['.ts', '.js'],
@@ -18,10 +20,17 @@ module.exports = function(env, { mode }) {
     devServer: {
       port: 9000,
       historyApiFallback: true,
-      writeToDisk: true,
       open: !process.env.CI,
-      lazy: false
+      devMiddleware: {
+        writeToDisk: true,
+      },
+      static: {
+        directory: path.join(__dirname, './')
+      }
     },
+    plugins: [
+      new CleanWebpackPlugin()
+    ],
     module: {
       rules: [
         {
