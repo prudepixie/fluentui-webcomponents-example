@@ -13,7 +13,6 @@
     "strict": true,
     "outDir": "dist/build",
     "rootDir": "src",
-    "skipLibCheck": true,
     "lib": [
       "dom",
       "esnext"

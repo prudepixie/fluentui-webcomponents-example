@@ -1,9 +1,23 @@
 import {
     provideFluentDesignSystem,
-    fluentButton
+    fluentButton,
+    fluentCheckbox,
+    fluentTextField,
+    fluentRadioGroup,
+    fluentRadio,
+    fluentTextArea,
+    fluentSelect,
+    fluentOption
 } from "@fluentui/web-components";
 
 provideFluentDesignSystem()
     .register(
-        fluentButton()
+        fluentButton(),
+        fluentCheckbox(),
+        fluentTextField(),
+        fluentRadioGroup(),
+        fluentRadio(),
+        fluentTextArea(),
+        fluentSelect(),
+        fluentOption()
     );

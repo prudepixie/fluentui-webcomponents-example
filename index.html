@@ -6,7 +6,34 @@
     <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
   </head>
   <body>
-    <fluent-button appearance="accent">Button</fluent-button>
+    <form>
+        <h1>Example Form</h1>
+        <h5>Text Input</h5>
+        <fluent-text-field placeholder="type here..."></fluent-text-field>
+        <h5>Text Area</h5>
+        <fluent-text-area placeholder="type here..."></fluent-text-area>
+        <h5>Checkboxes</h5>
+        <fluent-checkbox>Default</fluent-checkbox>
+        <fluent-checkbox checked disabled>Disabled</fluent-checkbox>
+        <fluent-checkbox checked>Checked</fluent-checkbox>
+        <h5>Vertical Radio Group </h5>
+        <fluent-radio-group orientation="vertical">
+            <fluent-radio>Default</fluent-radio>
+            <fluent-radio disabled>Disabled</fluent-radio>
+            <fluent-radio checked>Checked</fluent-radio>
+        </fluent-radio-group>
+        <h5>Dropdown selection</h5>
+        <fluent-select title="Select your hero">
+            <fluent-option value="1">Bruce Wayne</fluent-option>
+            <fluent-option value="2">Natasha Romanoff</fluent-option>
+            <fluent-option value="3">Steven Strange</fluent-option>
+        </fluent-select>
+        <h5>Button Group</h5>
+        <div>
+            <fluent-button appearance="accent">Primary</fluent-button>
+            <fluent-button>Secondary</fluent-button>
+        </div>
+    </form>
     <script src="dist/bundle.js"></script>
   </body>
 </html>
