@@ -7,7 +7,7 @@
     "build": "webpack --mode=production",
     "build:dev": "webpack --mode=development",
     "dev": "webpack serve",
-    "deploy": "surge --domain fluentui-webcomponents.surge.sh"
+    "deploy": "rimraf dist && webpack --mode=production && surge --domain fluentui-webcomponents.surge.sh"
   },
   "author": "",
   "license": "ISC",
