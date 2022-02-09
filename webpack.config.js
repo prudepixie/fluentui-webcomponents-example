@@ -11,7 +11,8 @@ module.exports = function (env, { mode }) {
     },
     output: {
       filename: 'bundle.js',
-      publicPath: '/'
+      publicPath: '/',
+      path: path.resolve(__dirname, "dist"),
     },
     resolve: {
       extensions: ['.ts', '.js'],

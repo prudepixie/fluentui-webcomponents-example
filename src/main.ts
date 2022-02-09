@@ -1,11 +1,9 @@
 import {
-    fluentButton,
-    fluentDesignSystemProvider,
     provideFluentDesignSystem,
+    fluentButton
 } from "@fluentui/web-components";
 
-provideFluentDesignSystem().register(
-    fluentDesignSystemProvider(),
-    fluentButton(),
-);
-
+provideFluentDesignSystem()
+    .register(
+        fluentButton()
+    );
