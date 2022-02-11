@@ -1,0 +1,21 @@
+body {
+    font-family: "Segoe UI", system-ui, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.4286;
+}
+div {
+    display: flex;
+}
+.left {
+    margin-right: 0.625rem;
+}
+.right {
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 700;
+}
+.secondary {
+    font-size: 0.75rem;
+}

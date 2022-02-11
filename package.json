@@ -7,12 +7,13 @@
     "build": "webpack --mode=production",
     "build:dev": "webpack --mode=development",
     "dev": "webpack serve",
-    "deploy": "rimraf dist && webpack --mode=production && surge --domain fluentui-webcomponents.surge.sh"
+    "deploy": "webpack --mode=production && surge --domain fluentui-webcomponents.surge.sh"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@fluentui/web-components": "latest",
+    "@microsoft/fast-element": "latest",
     "tslib": "^1.11.1"
   },
   "devDependencies": {

@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FluentUI Web Components example</title>
     <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+    <link href="/public/styles.css" rel="stylesheet"/>
   </head>
   <body>
+    <fluent-card-container>
+      <div slot="header">
+        <div class="left">
+          <img src="public/matt.jpg" alt="matt avatar"/>
+        </div>
+        <div class="right">
+          <span class="title">Title goes here</span>
+          <span class="secondary"> Secondary line</span>
+        </div>
+      </div>
+      <p slot="body">Citizens of distant epochs muse about at the edge of forever hearts of the...</p>
+    </fluent-card-container>
     <script src="dist/bundle.js"></script>
   </body>
 </html>
