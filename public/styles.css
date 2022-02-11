@@ -6,6 +6,18 @@ body {
 div {
     display: flex;
 }
+
+fluent-card {
+    background-color: rgb(250, 249, 248);
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 18.75rem;
+}
+
+fluent-card:hover {
+    background-color: rgb(237, 235, 233);
+}
+
 .left {
     margin-right: 0.625rem;
 }
