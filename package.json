@@ -4,10 +4,10 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "rimraf dist && webpack --mode=production",
     "build:dev": "webpack --mode=development",
     "dev": "webpack serve",
-    "deploy": "rimraf dist && webpack --mode=production && surge --domain fluentui-webcomponents.surge.sh"
+    "deploy": "surge --domain fluentui-webcomponents.surge.sh"
   },
   "author": "",
   "license": "ISC",
