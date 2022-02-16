@@ -1,7 +1,9 @@
 import {
+    fluentButton,
     provideFluentDesignSystem,
-} from "@fluentui/web-components";
+} from "fluent-wc-v9";
 
 provideFluentDesignSystem()
     .register(
+        fluentButton()
     );

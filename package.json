@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fluentui/web-components": "latest",
+    "fluent-wc-v9": "file:../fluent-v9-example-wc",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
