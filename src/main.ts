@@ -1,4 +1,4 @@
-import { fluentButton, provideFluentDesignSystem } from "fluent-wc-v9";
+import { FluentButton, provideFluentDesignSystem } from "./fluent-wc-v9";
 import {
   FASTElement,
   customElement,
@@ -8,13 +8,13 @@ import {
   ViewTemplate,
 } from "@microsoft/fast-element";
 
+provideFluentDesignSystem().register(FluentButton);
+
 enum Component {
   Button = "button",
   Mixed = "mixed",
   Card = "card",
 }
-
-provideFluentDesignSystem().register(fluentButton());
 
 const templatesByType = {
   button: `<fluent-button appearance="primary">Button</fluent-button>`,
