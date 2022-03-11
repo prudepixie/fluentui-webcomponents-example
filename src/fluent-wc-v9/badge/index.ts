@@ -16,4 +16,4 @@ import { badgeStyles as styles } from "./badge.styles";
     template,
     styles,
 })
- export class FluentBadge extends Badge {}
+export class FluentBadge extends Badge {}

@@ -1,7 +1,4 @@
-import { attr } from "@microsoft/fast-element";
-import {
-    Card as FoundationCard
-} from "@microsoft/fast-foundation";
+import { attr, FASTElement } from "@microsoft/fast-element";
 
 /**
  * Types of card appearance.
@@ -16,7 +13,7 @@ export type CardAppearance =
 /**
  * @internal
  */
-export class Card extends FoundationCard {
+export class Card extends FASTElement {
     /**
      * The appearance the card should have.
      *

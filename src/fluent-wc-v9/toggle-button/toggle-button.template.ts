@@ -1,17 +1,17 @@
 import { html, ref, slotted } from "@microsoft/fast-element";
-import type { Button } from "./button";
+import type { ToggleButton } from "./toggle-button";
 
 /**
  * The template for the {@link @microsoft/fast-foundation#(Button:class)} component.
  * @public
  */
-export const buttonTemplate = html<Button>`
+export const buttonTemplate = html<ToggleButton>`
     <button
         class="base"
         part="base"
         ?autofocus="${x => x.autofocus}"
         ?disabled="${x => x.disabled}"
-        tabindex="${x => x.disabledFocusable ? "0" : void 0}"
+        tabindex="${x => x.disabledFocusable ? "0" : !!x.tabIndex || void 0}"
         form="${x => x.formId}"
         formaction="${x => x.formaction}"
         formenctype="${x => x.formenctype}"
@@ -39,9 +39,11 @@ export const buttonTemplate = html<Button>`
         aria-labelledby="${x => x.ariaLabelledby}"
         aria-live="${x => x.ariaLive}"
         aria-owns="${x => x.ariaOwns}"
-        aria-pressed="${x => x.ariaPressed}"
+        aria-pressed="${x => x.checked || x.ariaPressed}"
         aria-relevant="${x => x.ariaRelevant}"
         aria-roledescription="${x => x.ariaRoledescription}"
+        @keypress="${(x, c) => x.keypressHandler(c.event as KeyboardEvent)}"
+        @click="${(x, c) => x.clickHandler(c.event as MouseEvent)}"
         ${ref("control")}
     >
         <slot name="start"></slot>

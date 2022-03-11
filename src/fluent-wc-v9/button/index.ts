@@ -1,4 +1,4 @@
-import { customElement } from '@microsoft/fast-element';
+import { customElement } from "@microsoft/fast-element";
 import { Button } from "./button";
 import { buttonTemplate as template } from "./button.template";
 import { buttonStyles as styles } from "./button.styles";
@@ -15,11 +15,11 @@ import { buttonStyles as styles } from "./button.styles";
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/delegatesFocus | delegatesFocus}
  */
 @customElement({
-    name: "fluent-button",
-    template,
-    styles,
-    shadowOptions: {
-        delegatesFocus: true,
-    },
+  name: "hello-button",
+  template,
+  styles,
+  shadowOptions: {
+    delegatesFocus: true,
+  },
 })
- export class FluentButton extends Button {}
+export class FluentButton extends Button {}
