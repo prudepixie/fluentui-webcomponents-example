@@ -1,22 +1,22 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const path = require('path');
+const path = require("path");
 
 module.exports = function (env, { mode }) {
-  const production = mode === 'production';
+  const production = mode === "production";
   return {
-    mode: production ? 'production' : 'development',
-    devtool: production ? 'source-map' : 'inline-source-map',
+    mode: production ? "production" : "development",
+    devtool: production ? "source-map" : "inline-source-map",
     entry: {
-      app: ['./src/main.ts']
+      app: ["./src/main.ts"],
     },
     output: {
-      filename: 'bundle.js',
-      publicPath: '/',
+      filename: "bundle.js",
+      publicPath: "/",
       path: path.resolve(__dirname, "dist"),
     },
     resolve: {
-      extensions: ['.ts', '.js'],
-      modules: ['src', 'node_modules']
+      extensions: [".ts", ".js"],
+      modules: ["src", "node_modules"],
     },
     devServer: {
       port: 9000,
@@ -26,24 +26,25 @@ module.exports = function (env, { mode }) {
         writeToDisk: true,
       },
       static: {
-        directory: path.join(__dirname, './')
-      }
+        directory: path.join(__dirname, "./"),
+      },
     },
-    plugins: [
-      new CleanWebpackPlugin()
-    ],
+    plugins: [new CleanWebpackPlugin()],
     module: {
       rules: [
         {
           test: /\.ts$/i,
           use: [
             {
-              loader: 'ts-loader'
-            }
+              loader: path.resolve(__dirname, "./template-loader.js"),
+            },
+            {
+              loader: "ts-loader",
+            },
           ],
-          exclude: /node_modules/
-        }
-      ]
-    }
-  }
-}
+          exclude: /node_modules/,
+        },
+      ],
+    },
+  };
+};
