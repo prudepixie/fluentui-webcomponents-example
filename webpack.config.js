@@ -5,7 +5,7 @@ module.exports = function (env, { mode }) {
   const production = mode === "production";
   return {
     mode: production ? "production" : "development",
-    devtool: production ? "source-map" : "inline-source-map",
+    // devtool: production ? "inline-source-map" : "source-map",
     entry: {
       app: ["./src/main.ts"],
     },
@@ -19,7 +19,7 @@ module.exports = function (env, { mode }) {
       modules: ["src", "node_modules"],
     },
     devServer: {
-      port: 9000,
+      port: 9001,
       historyApiFallback: true,
       open: !process.env.CI,
       devMiddleware: {

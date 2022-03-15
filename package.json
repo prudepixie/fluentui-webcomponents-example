@@ -2,7 +2,7 @@
   "name": "fluentui-example",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "main.ts",
   "scripts": {
     "analyze": "source-map-explorer 'dist/*.js'",
     "build": "webpack --mode=production",
@@ -13,10 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fluentui/react-components": "^9.0.0-rc.6",
     "@fluentui/react-theme": "^9.0.0-rc.4",
     "@microsoft/fast-element": "^1.8.0",
-    "@microsoft/fast-foundation": "^2.35.2",
+    "@microsoft/fast-foundation": "^2.36.0",
     "tslib": "^2.3.1"
   },
   "devDependencies": {

@@ -15,7 +15,7 @@ import { buttonStyles as styles } from "./button.styles";
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/delegatesFocus | delegatesFocus}
  */
 @customElement({
-  name: "hello-button",
+  name: "fluent-button",
   template,
   styles,
   shadowOptions: {
