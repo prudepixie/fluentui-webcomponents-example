@@ -1,18 +1,18 @@
 import { html, ref, slotted } from "@microsoft/fast-element";
-import type { Button } from "./button";
 import { reflectAttributes } from '@microsoft/fast-foundation';
+import type { CompoundButton } from "./compound-button";
 
 /**
- * The template for the {@link @microsoft/fast-foundation#(Button:class)} component.
+ * The template for the Compound Button component.
  * @public
  */
-export const buttonTemplate = html<Button>`
+export const compoundButtonTemplate = html<CompoundButton>`
     <button
         class="base"
         part="base"
         ?autofocus="${x => x.autofocus}"
         ?disabled="${x => x.disabled}"
-        tabindex="${x => x.disabledFocusable ? "0" : void 0}"
+        tabindex="${x => x.disabledFocusable ? "0" : !!x.tabIndex || void 0}"
         aria-disabled="${x => x.disabledFocusable === true ? "true" : x.ariaDisabled}"
         ${reflectAttributes(
             "form",
@@ -48,7 +48,10 @@ export const buttonTemplate = html<Button>`
         ${ref("control")}
     >
         <slot name="start"></slot>
-        <slot ${slotted("defaultSlottedContent")}></slot>
+        <span class="content" part="content">
+            <slot></slot>
+            <slot name="description"></slot>
+        </span>
         <slot name="end"></slot>
     </button>
 `;

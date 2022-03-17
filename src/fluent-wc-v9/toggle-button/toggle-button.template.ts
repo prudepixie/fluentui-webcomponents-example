@@ -1,5 +1,6 @@
 import { html, ref, slotted } from "@microsoft/fast-element";
 import type { ToggleButton } from "./toggle-button";
+import { reflectAttributes } from '@microsoft/fast-foundation';
 
 /**
  * The template for the {@link @microsoft/fast-foundation#(Button:class)} component.
@@ -12,36 +13,38 @@ export const buttonTemplate = html<ToggleButton>`
         ?autofocus="${x => x.autofocus}"
         ?disabled="${x => x.disabled}"
         tabindex="${x => x.disabledFocusable ? "0" : !!x.tabIndex || void 0}"
-        form="${x => x.formId}"
-        formaction="${x => x.formaction}"
-        formenctype="${x => x.formenctype}"
-        formmethod="${x => x.formmethod}"
-        formnovalidate="${x => x.formnovalidate}"
-        formtarget="${x => x.formtarget}"
-        name="${x => x.name}"
-        type="${x => x.type}"
-        value="${x => x.value}"
-        aria-atomic="${x => x.ariaAtomic}"
-        aria-busy="${x => x.ariaBusy}"
-        aria-controls="${x => x.ariaControls}"
-        aria-current="${x => x.ariaCurrent}"
-        aria-describedby="${x => x.ariaDescribedby}"
-        aria-details="${x => x.ariaDetails}"
         aria-disabled="${x => x.disabledFocusable === true ? "true" : x.ariaDisabled}"
-        aria-errormessage="${x => x.ariaErrormessage}"
-        aria-expanded="${x => x.ariaExpanded}"
-        aria-flowto="${x => x.ariaFlowto}"
-        aria-haspopup="${x => x.ariaHaspopup}"
-        aria-hidden="${x => x.ariaHidden}"
-        aria-invalid="${x => x.ariaInvalid}"
-        aria-keyshortcuts="${x => x.ariaKeyshortcuts}"
-        aria-label="${x => x.ariaLabel}"
-        aria-labelledby="${x => x.ariaLabelledby}"
-        aria-live="${x => x.ariaLive}"
-        aria-owns="${x => x.ariaOwns}"
-        aria-pressed="${x => x.checked || x.ariaPressed}"
-        aria-relevant="${x => x.ariaRelevant}"
-        aria-roledescription="${x => x.ariaRoledescription}"
+        ${reflectAttributes(
+            "form",
+            "formaction",
+            "formenctype",
+            "formmethod",
+            "formnovalidate",
+            "formtarget",
+            "name",
+            "type",
+            "value",
+            "aria-atomic",
+            "aria-busy",
+            "aria-controls",
+            "aria-current",
+            "aria-describedby",
+            "aria-details",
+            "aria-errormessage",
+            "aria-expanded",
+            "aria-flowto",
+            "aria-haspopup",
+            "aria-hidden",
+            "aria-invalid",
+            "aria-keyshortcuts",
+            "aria-label",
+            "aria-labelledby",
+            "aria-live",
+            "aria-owns",
+            "aria-pressed",
+            "aria-relevant",
+            "aria-roledescription",
+        )}
         @keypress="${(x, c) => x.keypressHandler(c.event as KeyboardEvent)}"
         @click="${(x, c) => x.clickHandler(c.event as MouseEvent)}"
         ${ref("control")}

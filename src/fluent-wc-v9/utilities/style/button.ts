@@ -8,7 +8,19 @@ import { display } from "@microsoft/fast-foundation";
 export const baseButtonStyles = css`
     ${display("inline-block")}
 
-    :host .base {
+    :host {
+        --button-border-color: ${tokens.colorNeutralStroke1};
+        --button-border-right-color: var(--button-border-color);
+        --button-border-left-color: var(--button-border-color);
+        --button-border-radius: ${tokens.borderRadiusMedium};
+        --border-top-right-radius: var(--button-border-radius);
+        --border-top-left-radius: var(--button-border-radius);
+        --border-bottom-right-radius: var(--button-border-radius);
+        --border-bottom-left-radius: var(--button-border-radius);
+        border: none;
+    }
+
+    .base {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -20,39 +32,66 @@ export const baseButtonStyles = css`
         white-space: nowrap;
         background-color: ${tokens.colorNeutralBackground1};
         color: ${tokens.colorNeutralForeground1};
-        border: ${tokens.strokeWidthThin} solid ${tokens.colorNeutralStroke1};
+        border-width: ${tokens.strokeWidthThin};
+        border-style: solid;
         font-family: ${tokens.fontFamilyBase};
         outline-style: none;
+        border-color: var(--button-border-color);
+        border-right-color: var(--button-border-right-color);
+        border-left-color: var(--button-border-left-color);
+        border-top-right-radius: var(--border-top-right-radius);
+        border-top-left-radius: var(--border-top-left-radius);
+        border-bottom-right-radius: var(--border-bottom-right-radius);
+        border-bottom-left-radius: var(--border-bottom-left-radius);
+    }
+
+    :host(:hover) {
+       --button-border-color: ${tokens.colorNeutralStroke1Hover};
+    }
+
+    :host(:active) {
+        --button-border-color: ${tokens.colorNeutralStroke1Pressed};
     }
 
     :host(:hover) .base {
         background-color: ${tokens.colorNeutralBackground1Hover};
-        border-color: ${tokens.colorNeutralStroke1Hover};
         color: ${tokens.colorNeutralForeground1};
         cursor: pointer;
     }
 
     :host(:active) .base {
         background-color: ${tokens.colorNeutralBackground1Pressed};
-        border-color: ${tokens.colorNeutralStroke1Pressed};
         color: ${tokens.colorNeutralForeground1};
         outline-style: none;
     }
 
-    :host([size][shape="circular"]) .base {
-        border-radius: ${tokens.borderRadiusCircular};
+    :host([size][shape="circular"]) {
+        --button-border-radius: ${tokens.borderRadiusCircular};
     }
 
-    :host([size][shape="square"]) .base {
-        border-radius: ${tokens.borderRadiusNone};
+    :host([size][shape="square"]) {
+        --button-border-radius: ${tokens.borderRadiusNone};
+    }
+
+    :host([disabled]),
+    :host([disabled]:active),
+    :host([disabled]:hover) {
+        --button-border-color: ${tokens.colorNeutralStrokeDisabled};
     }
 
     :host([disabled]) .base,
     :host .base[aria-disabled="true"] {
         background-color: ${tokens.colorNeutralBackgroundDisabled};
-        border-color: ${tokens.colorNeutralStrokeDisabled};
         color: ${tokens.colorNeutralForegroundDisabled};
         cursor: not-allowed;
+    }
+
+    ::slotted(svg),
+    slot > svg {
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+        fill: currentColor;
     }
 `;
 
@@ -60,21 +99,30 @@ export const baseButtonStyles = css`
  * Primary button styles
  */
 export const primaryButtonStyles = css`
+    :host([appearance="primary"]),
+    :host([appearance="primary"]:hover),
+    :host([appearance="primary"]:active) {
+        --button-border-color: transparent;
+    }
+
+    :host([appearance="primary"]) .base,
+    :host([appearance="primary"]:hover) .base,
+    :host([appearance="primary"]:active) .base {
+        border-color: inherit;
+    }
+    
     :host([appearance="primary"]) .base {
         background-color: ${tokens.colorBrandBackground};
-        border-color: transparent;
         color: ${tokens.colorNeutralForegroundOnBrand};
     }
 
     :host([appearance="primary"]:hover) .base {
         background-color: ${tokens.colorBrandBackgroundHover};
-        border-color: transparent;
         color: ${tokens.colorNeutralForegroundOnBrand};
     }
 
     :host([appearance="primary"]:active) .base {
         background-color: ${tokens.colorBrandBackgroundPressed};
-        border-color: transparent;
         color: ${tokens.colorNeutralForegroundOnBrand};
     }
 
@@ -88,7 +136,6 @@ export const primaryButtonStyles = css`
         border-color: ${tokens.colorNeutralStrokeDisabled};
         color: ${tokens.colorNeutralForegroundDisabled};
         cursor: not-allowed;
-        border-color: transparent;
     }
 `;
 
@@ -96,34 +143,32 @@ export const primaryButtonStyles = css`
  * Subtle button styles
  */
 export const subtleButtonStyles = css`
+    :host([appearance="subtle"]),
+    :host([appearance="subtle"]:hover),
+    :host([appearance="subtle"]:active) {
+        --button-border-color: transparent;
+    }
+
     :host([appearance="subtle"]) .base {
         background-color: ${tokens.colorSubtleBackground};
-        border-color: transparent;
         color: ${tokens.colorNeutralForeground2};
     }
 
     :host([appearance="subtle"]:hover) .base {
         background-color: ${tokens.colorSubtleBackgroundHover};
-        border-color: transparent;
         color: ${tokens.colorNeutralForeground2BrandHover};
     }
 
     :host([appearance="subtle"]:active) .base {
         background-color: ${tokens.colorSubtleBackgroundPressed};
-        border-color: transparent;
         color: ${tokens.colorNeutralForeground2BrandPressed};
-    }
-
-    :host([appearance="subtle"][disabled]) .base {
-        background-color: ${tokens.colorNeutralBackgroundDisabled};
-        border-color: ${tokens.colorNeutralStrokeDisabled};
-        color: ${tokens.colorNeutralForegroundDisabled};
-        cursor: not-allowed;
     }
 
     :host([appearance="subtle"][disabled]) .base,
     :host([appearance="subtle"][disabled]:hover) .base,
     :host([appearance="subtle"][disabled]:active) .base {
+        color: ${tokens.colorNeutralForegroundDisabled};
+        cursor: not-allowed;
         background-color: transparent;
         border-color: transparent;
     }
@@ -150,21 +195,23 @@ export const outlineButtonStyles = css`
  * Transparent button styles
  */
  export const transparentButtonStyles = css`
+    :host([appearance="transparent"]),
+    :host([appearance="transparent"]:hover),
+    :host([appearance="transparent"]:active) {
+        --button-border-color: transparent;
+    }
     :host([appearance="transparent"]) .base {
         background-color: ${tokens.colorTransparentBackground};
-        border-color: transparent;
         color: ${tokens.colorNeutralForeground2};
     }
 
     :host([appearance="transparent"]:hover) .base {
         background-color: ${tokens.colorTransparentBackgroundHover};
-        border-color: transparent;
         color: ${tokens.colorNeutralForeground2BrandHover};
     }
 
     :host([appearance="transparent"]:active) .base {
         background-color: ${tokens.colorTransparentBackgroundPressed};
-        border-color: transparent;
         color: ${tokens.colorNeutralForeground2BrandPressed};
     }
 
@@ -182,20 +229,14 @@ export const outlineButtonStyles = css`
  */
 export const smallButtonStyles = css`
     :host([size="small"]) .base {
+        --button-border-radius: ${tokens.borderRadiusSmall};
         gap: 4px;
         padding: 0 8px;
         height: 24px;
         min-width: 64px;
-        border-radius: ${tokens.borderRadiusSmall};
         font-size: ${tokens.fontSizeBase200};
         font-weight: ${tokens.fontWeightRegular};
         line-height: ${tokens.lineHeightBase200};
-    }
-
-    :host([size="small"]) ::slotted(svg) {
-        font-size: 20px;
-        height: 20px;
-        width: 20px;
     }
 
     :host([size="small"]) .base.icon-only {
@@ -214,16 +255,9 @@ export const mediumButtonStyles = css`
         padding: 0 12px;
         height: 32px;
         min-width: 96px;
-        border-radius: ${tokens.borderRadiusMedium};
         font-size: ${tokens.fontSizeBase300};
         font-weight: ${tokens.fontWeightSemibold};
         line-height: ${tokens.lineHeightBase300};
-    }
-
-    :host([size="medium"]) ::slotted(svg) {
-        font-size: 20px;
-        height: 20px;
-        width: 20px;
     }
 
     :host([size="medium"]) .base.icon-only {
@@ -235,16 +269,17 @@ export const mediumButtonStyles = css`
 
 export const largeButtonStyles = css`
     :host([size="large"]) .base {
+        --button-border-radius: ${tokens.borderRadiusLarge};
         gap: 6px;
         padding: 0 16px;
         height: 40px;
         min-width: 96px;
-        border-radius: ${tokens.borderRadiusLarge};
         font-size: ${tokens.fontSizeBase300};
         font-weight: ${tokens.fontWeightSemibold};
         line-height: ${tokens.lineHeightBase300};
     }
 
+    :host([size="large"]) slot > svg,
     :host([size="large"]) ::slotted(svg) {
         font-size: 24px;
         height: 24px;

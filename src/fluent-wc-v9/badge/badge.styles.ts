@@ -292,7 +292,7 @@ export const badgeStyles = css`
     `),
     shapeBehavior("circular", css`
         :host([shape="circular"]) {
-            border-radius: 99px;
+            border-radius: ${tokens.borderRadiusCircular};
         }
     `)
 );

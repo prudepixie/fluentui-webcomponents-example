@@ -21,21 +21,21 @@ export const toggleButtonStyles = css`
     ${baseButtonStyles}
 
     :host([current-checked]) .base {
+        --button-border-color: ${tokens.colorNeutralStroke1};
         background-color: ${tokens.colorNeutralBackground1Selected};
-        border-color: ${tokens.colorNeutralStroke1};
         color: ${tokens.colorNeutralForeground1};
         border-width: ${tokens.strokeWidthThin}; 
     }
 
     :host([current-checked]:hover) .base {
+        --button-border-color: ${tokens.colorNeutralStroke1Hover};
         background-color: ${tokens.colorNeutralBackground1Hover};
-        border-color: ${tokens.colorNeutralStroke1Hover};
         color: ${tokens.colorNeutralForeground1};
     }
 
     :host([current-checked]:active) .base {
+        --button-border-color: ${tokens.colorNeutralStroke1Pressed};
         background-color: ${tokens.colorNeutralBackground1Pressed};
-        border-color: ${tokens.colorNeutralStroke1Pressed};
         color: ${tokens.colorNeutralForeground1};
     }
 `.withBehaviors(
@@ -43,8 +43,8 @@ export const toggleButtonStyles = css`
         ${primaryButtonStyles}
 
         :host([current-checked][appearance="primary"]) .base {
+            --button-border-color: transparent;
             background-color: ${tokens.colorBrandBackgroundSelected};
-            border-color: transparent;
             color: ${tokens.colorNeutralForegroundOnBrand};
         }
 
@@ -60,8 +60,8 @@ export const toggleButtonStyles = css`
         ${subtleButtonStyles}
 
         :host([current-checked][appearance="subtle"]) .base {
+            --button-border-color: transparent;
             background-color: ${tokens.colorSubtleBackgroundSelected};
-            border-color: transparent;
             color: ${tokens.colorNeutralForeground2BrandSelected};
         }
 
@@ -94,8 +94,8 @@ export const toggleButtonStyles = css`
         ${transparentButtonStyles}
 
         :host([current-checked][appearance="transparent"]) .base {
+            --button-border-color: transparent;
             background-color: ${tokens.colorTransparentBackgroundSelected};
-            border-color: transparent;
             color: ${tokens.colorNeutralForeground2BrandSelected};
         }
 
