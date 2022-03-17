@@ -4,6 +4,7 @@
 export * from "./accordion/index";
 export * from "./accordion/accordion-item/index";
 export * from "./avatar/index";
+export * from "./badge/index";
 export * from "./button/index";
 export * from "./card/index";
 export * from "./card-footer/index";

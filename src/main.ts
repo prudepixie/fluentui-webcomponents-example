@@ -1,5 +1,5 @@
-import { FluentButton } from "./fluent-wc-v9";
-
+import { FluentBadge, FluentButton } from "./fluent-wc-v9";
+FluentBadge;
 FluentButton;
 import {
   FASTElement,
@@ -10,6 +10,7 @@ import {
 } from "@microsoft/fast-element";
 
 const templatesByType = {
+  badge: html`<fluent-badge>Badge</fluent-badge>`,
   button: html`<fluent-button appearance="primary">Button</fluent-button>`,
   card: html`<fluent-card>I'm a Card</fluent-card>`,
 };
