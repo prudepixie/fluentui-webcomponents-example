@@ -24,10 +24,10 @@ export class ComponentList extends FASTElement {
 
   connectedCallback() {
     super.connectedCallback();
-    const params = new URLSearchParams(document.location.search);
-    const component = params.get("component") || "button";
-    const isMultiple = component.includes(",");
-    const repeatNum = parseInt(params.get("repeatNum")) || 1;
+    const params = new URLSearchParams(document.location.search),
+      component = params.get("component") || "button",
+      isMultiple = component?.includes(","),
+      repeatNum = parseInt(params.get("repeatNum")) || 1;
 
     if (isMultiple) {
       const componentList = component.split(",");
