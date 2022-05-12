@@ -32,4 +32,4 @@ jobs:
       - name: Report Tachometer Result
         uses: andrewiggins/tachometer-reporter-action@v2
         with:
-          path: results.json
+          path: res.json
