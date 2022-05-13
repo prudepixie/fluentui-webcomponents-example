@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Polymer/tachometer/master/config.schema.json",
+  "sampleSize": 10,
+  "timeout": 0,
+  "autoSampleConditions": ["0%", "1%"],
+  "benchmarks": [
+    {
+      "name": "inner- fast element 1.6",
+      "url": "inner.html",
+      "browser": {
+        "name": "chrome",
+        "headless": true,
+        "windowSize": {
+          "width": 800,
+          "height": 600
+        }
+      },
+      "packageVersions": {
+        "label": "1.6.0",
+        "dependencies": {
+          "@microsoft/fast-element": "1.6.0"
+        }
+      }
+    },
+    {
+      "name": "append - fast element 1.8",
+      "url": "append.html",
+      "browser": {
+        "name": "chrome",
+        "headless": true,
+        "windowSize": {
+          "width": 800,
+          "height": 600
+        }
+      },
+      "packageVersions": {
+        "label": "1.8.0",
+        "dependencies": {
+          "@microsoft/fast-element": "1.8.0"
+        }
+      }
+    }
+  ]
+}
