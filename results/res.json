@@ -1,0 +1,98 @@
+{
+  "benchmarks": [
+    {
+      "name": "inner- fast element 1.4",
+      "bytesSent": 778,
+      "version": "1.4.0",
+      "measurement": {
+        "name": "callback",
+        "mode": "callback"
+      },
+      "browser": {
+        "name": "chrome",
+        "headless": true,
+        "windowSize": {
+          "width": 800,
+          "height": 600
+        },
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/101.0.4951.64 Safari/537.36"
+      },
+      "mean": {
+        "low": 8.204051084562757,
+        "high": 13.275948910668873
+      },
+      "differences": [
+        null,
+        {
+          "absolute": {
+            "low": 7.433591491857685,
+            "high": 12.506408511718595
+          },
+          "percentChange": {
+            "low": 954.045795607165,
+            "high": 1635.5646084997502
+          }
+        }
+      ],
+      "samples": [
+        8.900000005960464,
+        9,
+        9,
+        8.900000005960464,
+        9.099999994039536,
+        9.400000005960464,
+        9.299999982118607,
+        16,
+        18.69999998807907,
+        9.099999994039536
+      ]
+    },
+    {
+      "name": "append - fast element 1.9",
+      "bytesSent": 786,
+      "version": "1.9.0",
+      "measurement": {
+        "name": "callback",
+        "mode": "callback"
+      },
+      "browser": {
+        "name": "chrome",
+        "headless": true,
+        "windowSize": {
+          "width": 800,
+          "height": 600
+        },
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/101.0.4951.64 Safari/537.36"
+      },
+      "mean": {
+        "low": 0.7217170833984446,
+        "high": 0.8182829082569051
+      },
+      "differences": [
+        {
+          "absolute": {
+            "low": -12.506408511718595,
+            "high": -7.433591491857685
+          },
+          "percentChange": {
+            "low": -94.58208280258708,
+            "high": -91.07899734641464
+          }
+        },
+        null
+      ],
+      "samples": [
+        0.7999999821186066,
+        0.800000011920929,
+        0.7999999821186066,
+        0.699999988079071,
+        0.699999988079071,
+        0.7000000178813934,
+        0.7999999821186066,
+        0.800000011920929,
+        0.699999988079071,
+        0.9000000059604645
+      ]
+    }
+  ]
+}

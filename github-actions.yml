@@ -1,0 +1,35 @@
+name: learn-github-actions
+on: [pull_request]
+jobs:
+  pr_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Setup repo to run benchmarks
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          # This uses the same name as the build-action so we can share the caches.
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      # Run benchmarks
+      - name: Run tachometer and generate results file
+        run: npm run benchmark
+
+      # Read results and post comment
+      - name: Report Tachometer Result
+        uses: andrewiggins/tachometer-reporter-action@v2
+        with:
+          path: res.json
