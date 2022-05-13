@@ -5,7 +5,7 @@
   "autoSampleConditions": ["0%", "1%"],
   "benchmarks": [
     {
-      "name": "inner- fast element 1.4",
+      "name": "inner- fast element 1.6",
       "url": "inner.html",
       "browser": {
         "name": "chrome",
@@ -16,14 +16,14 @@
         }
       },
       "packageVersions": {
-        "label": "1.4.0",
+        "label": "1.6.0",
         "dependencies": {
-          "@microsoft/fast-element": "1.4.0"
+          "@microsoft/fast-element": "1.6.0"
         }
       }
     },
     {
-      "name": "append - fast element 1.9",
+      "name": "append - fast element 1.8",
       "url": "append.html",
       "browser": {
         "name": "chrome",
@@ -34,9 +34,9 @@
         }
       },
       "packageVersions": {
-        "label": "1.9.0",
+        "label": "1.8.0",
         "dependencies": {
-          "@microsoft/fast-element": "1.9.0"
+          "@microsoft/fast-element": "1.8.0"
         }
       }
     }
